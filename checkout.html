@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout - GIANSA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <img src="img/logo.jpeg" alt="Logo GIANSA" class="logo">
+  </header>
+
+  <main style="text-align:center; margin-top:50px;">
+    <h2>Terima kasih telah berbelanja!</h2>
+    <p>Pesanan Anda sedang diproses.</p>
+    <p><strong>Nama:</strong> <span id="namaPelanggan"></span></p>
+    <p><strong>Alamat:</strong> <span id="alamatPelanggan"></span></p>
+  </main>
+
+  <footer>
+    <p>&copy; GIANSA FISHING SHOP </p>
+  </footer>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem("customerInfo") || "{}");
+    document.getElementById("namaPelanggan").innerText = data.name || "-";
+    document.getElementById("alamatPelanggan").innerText = data.addr || "-";
+    localStorage.removeItem("invoiceItem");
+  </script>
+</body>
+</html>
